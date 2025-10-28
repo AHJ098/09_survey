@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>영꿍님 취향 설문</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; text-align: center; padding: 30px; }
+    h2 { color: #ff7b00; }
+    .question { margin: 20px 0; }
+    label { margin: 0 15px; font-size: 18px; }
+    button { margin-top: 30px; padding: 10px 20px; font-size: 16px; }
+    #result { margin-top: 30px; font-weight: bold; color: #333; }
+  </style>
+</head>
+<body>
+  <h2>🎉 영꿍님의 생일은 진심으로 축하드립니다! 🎂</h2>
+  <p>영꿍님 취향 저격 프레젠트를 준비했어요.<br>아래 설문에 답해주세요!</p>
+
+  <form id="surveyForm">
+    <div class="question">
+      <p>1. LONG or SHORT</p>
+      <label><input type="radio" name="q1" value="LONG"> LONG</label>
+      <label><input type="radio" name="q1" value="SHORT"> SHORT</label>
+    </div>
+    <div class="question">
+      <p>2. BIG or SMALL</p>
+      <label><input type="radio" name="q2" value="BIG"> BIG</label>
+      <label><input type="radio" name="q2" value="SMALL"> SMALL</label>
+    </div>
+    <div class="question">
+      <p>3. YELLOW or BLACK</p>
+      <label><input type="radio" name="q3" value="YELLOW"> YELLOW</label>
+      <label><input type="radio" name="q3" value="BLACK"> BLACK</label>
+    </div>
+    <div class="question">
+      <p>4. MONEY or MIND</p>
+      <label><input type="radio" name="q4" value="MONEY"> MONEY</label>
+      <label><input type="radio" name="q4" value="MIND"> MIND</label>
+    </div>
+    <button type="button" onclick="showResult()">결과 보기</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function showResult() {
+      const form = document.forms['surveyForm'];
+      const answers = [
+        form.q1.value,
+        form.q2.value,
+        form.q3.value,
+        form.q4.value
+      ];
+
+      if (answers.includes('')) {
+        alert('모든 문항에 응답해주세요!');
+        return;
+      }
+
+      document.getElementById('result').innerHTML =
+        '🎁 영꿍님 취향 결과 🎁<br>' +
+        '1️⃣ ' + answers[0] + '<br>' +
+        '2️⃣ ' + answers[1] + '<br>' +
+        '3️⃣ ' + answers[2] + '<br>' +
+        '4️⃣ ' + answers[3] + '<br><br>' +
+        '감사합니다 💖';
+    }
+  </script>
+</body>
+</html>
